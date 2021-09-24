@@ -3,11 +3,11 @@ import logging.config
 import pandas as pd
 from traceback import format_exc
 
-from raif_hack.model import BenchmarkModel
-from raif_hack.settings import MODEL_PARAMS, LOGGING_CONFIG, NUM_FEATURES, CATEGORICAL_OHE_FEATURES,CATEGORICAL_STE_FEATURES,TARGET
-from raif_hack.utils import PriceTypeEnum
-from raif_hack.metrics import metrics_stat
-from raif_hack.features import prepare_categorical
+from raifhack_ds.model import BenchmarkModel
+from raifhack_ds.settings import MODEL_PARAMS, LOGGING_CONFIG, NUM_FEATURES, CATEGORICAL_OHE_FEATURES,CATEGORICAL_STE_FEATURES,TARGET
+from raifhack_ds.utils import PriceTypeEnum
+from raifhack_ds.metrics import metrics_stat
+from raifhack_ds.features import prepare_categorical
 
 logging.config.dictConfig(LOGGING_CONFIG)
 logger = logging.getLogger(__name__)
