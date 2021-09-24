@@ -1,13 +1,18 @@
 1. Обработать атрибуты - получить фичи
+https://colab.research.google.com/drive/1pLV9qRLKp0OvAozG8KuWBBV9k23FbfxI?usp=sharing  
 
 2. Фичи инженеринг 
 
 3. Проверка: Ноут с регрессией ML 
-
+https://colab.research.google.com/drive/1NEodd4EaquKOhlmrQazClc5VqoEPPBQ-?usp=sharing  
+https://colab.research.google.com/drive/10vrpQO-IOh2B-Df8ZEHVvZfhAGiFS_O3?usp=sharing  
+  
 4. Проверка: Ноут с регрессией DL
-
+https://colab.research.google.com/drive/1uKRr-HLbu7DH_WPrbUznNK2ShpDhy9iE?usp=sharing  
+  
 5. Проверка: Ноут с регрессией Transformers + attention
-
+https://colab.research.google.com/drive/1LsAmSnXKeYhCROapxpLyqAEodF-H8zaj?usp=sharing  
+  
 6. Проверка: Ноут с регрессией ??? Ранжирование по базе ???
 
 7. 
