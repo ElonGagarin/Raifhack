@@ -3,7 +3,7 @@ import logging.config
 import pandas as pd
 from raifhack_ds.features import prepare_categorical
 from traceback import format_exc
-
+from raifhack_ds.settings import MODEL_PARAMS, LOGGING_CONFIG, NEW_COL, NUM_FEATURES, CATEGORICAL_OHE_FEATURES,CATEGORICAL_STE_FEATURES,TARGET, FICH_GEN_TOP, NEW_COL
 from raifhack_ds.model import BenchmarkModel
 from raifhack_ds.settings import LOGGING_CONFIG, NUM_FEATURES, CATEGORICAL_OHE_FEATURES, \
     CATEGORICAL_STE_FEATURES
@@ -39,13 +39,25 @@ if __name__ == "__main__":
         args = vars(parse_args())
         logger.info('Load test df')
         test_df = pd.read_csv(args['d'])
+        def fich_gen(data, col):
+            new_col = []
+            for i in range(len(col)):                                                   #Для всех пар
+                for j in range(i + 1 , len(col)):                                         #Считаем
+                    data[col[i] + '-' + col[j]] = data[col[i]] - data[col[j]]                   #Разности
+                    new_col.append(col[i] + '-' + col[j])
+                    data['|' + col[i] + '-' + col[j] + '|'] = data[col[i]]/(data[col[j]] + 1e-6 ) #Модули разностей
+                    new_col.append('|' + col[i] + '-' + col[j] + '|')
+                    data[col[i] + '*' + col[j]] = data[col[i]] * data[col[j]] 
+                    new_col.append(col[i] + '*' + col[j])
+
+        fich_gen(test_df, FICH_GEN_TOP)            
         logger.info(f'Input shape: {test_df.shape}')
         test_df = prepare_categorical(test_df)
 
         logger.info('Load model')
         model = BenchmarkModel.load(args['mp'])
         logger.info('Predict')
-        test_df['per_square_meter_price'] = model.predict(test_df[NUM_FEATURES+CATEGORICAL_OHE_FEATURES+CATEGORICAL_STE_FEATURES])
+        test_df['per_square_meter_price'] = model.predict(test_df[NUM_FEATURES+NEW_COL+CATEGORICAL_OHE_FEATURES+CATEGORICAL_STE_FEATURES])
         logger.info('Save results')
         test_df[['id','per_square_meter_price']].to_csv(args['o'], index=False)
     except Exception as e:
