@@ -1,59 +1,44 @@
-# Описание
-Это бенчмарк скрипт для хакатона от Раййфайзенбанка по оценке коммерческой недвижимости
-Бенчмарк состоит из:
-* pyproject.toml - конфигурационный файл для менеджера пакетов poetry (https://python-poetry.org/) - в интернете есть много статей, посвященных ему (например https://habr.com/ru/post/455335/ и https://khashtamov.com/ru/python-poetry-dependency-management/)
-* requirements.txt - стандартный requirements для pip
-* train.py - скрипт, который обучает модель и сохраняет ее
-* predict.py - скрипт, который делает предсказание на отложенной тестовой выборке
+# Лучшие публичные решения и другие полещные ссылки с этого хакатона
 
-# Запуск
-## Вариант с poetry
-**Крайне рекомендую именно установку с poetry** - poetry это новый packet manager для питона, и он гораздо круче чем pip. Разобравшись с ним (а это очень-очень просто), думаю, вы будете необычайно счастливы.
-Для запуска необходимо:
-<ol>
-    <li> убедиться, что у вас стоит python3.6 или выше </li>
-    <li> установить poetry:
-
-     pip install poetry 
-</li>
-    <li> установить все нужные пакеты из poetry.lock:
-    <ol>
-        <li> по умолчанию poetry создает виртуальное окружение - это лучше для изоляции от вашей системы и рекомендуем именно такой способ установи пакетов:
-            
-         poetry  install  
-</li>
-        <li> если хочется установить без виртуального окружения, то установить нужно с помощью следующей команды:
-            
-        poetry config virtualenvs.create false && poetry  install
-</li>
-    </ol> 
-    </li>
-    <li> запустить обучение
-
-    poetry run python3 train.py --train_data <path_to_train_data> --model_path <path_to_pickle_ml_model>
-</li>
-    <li> запустить предикт
-
-    poetry run python3 predict.py --model_path <path_to_pickled_model> --test_data <path_to_test_data> --output <path_to_output_csv_file>
-</li>
-    <li> загрузить полученные результаты в систему </li>
-</ol>
-## Вариант с requirements.txt
-<ol>
-    <li> убедиться, что у вас стоит python3.6 или выше </li>
-    <li> установить зависимости:
+https://github.com/danielgafni/RAIFHACK  
+https://github.com/sakutepov/raif_baseline  
+https://github.com/Edgoo/hackathon_raiffeisen  
+https://github.com/RadmirZ/-dspyt.com-final-submission  
+https://github.com/VovanMC/raifhack_2021_solution  
+https://github.com/maks-sh/raifhack_baseline  
+https://github.com/akillarionov/raifhack  
+https://github.com/mechmabot/RaifHack  
+https://nbviewer.jupyter.org/github/maks-sh/raifhack_baseline/blob/main/baseline_solution.ipynb    
     
-    pip install -r requirements.txt 
-</li>
-    <li> запустить обучение
+# 10 полезных расширений для дата-сайентистов  
+  
+https://habr.com/ru/company/skillfactory/blog/542870/?
 
-    python3 train.py --train_data <path_to_train_data> --model_path <path_to_pickle_ml_model>
-</li>
-    <li> запустить предикт
+# Питчи  
+https://www.youtube.com/watch?v=6sbWg3OrnW0    
+  
+  
+  
+# LightAutoML  
+https://github.com/sberbank-ai-lab/LightAutoML  
+  
+Обучение - https://ods.ai/tracks/automl-course-part1  
+https://github.com/sberbank-ai-lab/LightAutoML/blob/master/examples/Tutorial_1.%20AutoML%20pipeline%20preset%20(with%20model%20descr).ipynb  
+  
+LightAutoML для датафеста, а также видео, в котором обсуждается тема бенчмарков AutoML решений.  
+  
+1. Репозиторий с туториалами из видео (https://github.com/sberbank-ai-lab/lightautoml-datafest-workshop)   
+2. Туториал BlackBox (Рыжков Александр) (https://www.youtube.com/watch?v=hr8GbPOHaEE), ноутбук  
+ (https://github.com/sberbank-ai-lab/lightautoml-datafest-workshop/blob/master/LightAutoML%20demo%20(Blackbox).ipynb)3. Туториал WhiteBox (Вахрушев Антон)   (https://www.youtube.com/watch?v=ajQwShL_Hak), ноутбук  
+ (https://github.com/sberbank-ai-lab/lightautoml-datafest-workshop/blob/master/LightAutoML%20demo%20(Whitebox).ipynb)4. Туториал NLP (Симаков Дмитрий)     (https://www.youtube.com/watch?v=4klVmKGdhvg), ноутбук  
+ (https://github.com/sberbank-ai-lab/lightautoml-datafest-workshop/blob/master/LightAutoML%20demo%20(NLP).ipynb)5. Видео про бенчмарки AutoML (Дамдинов Ринчин)     (https://www.youtube.com/watch?v=HO_N4BEmZm0)  
+  
+Ноутбуки:   
+https://www.kaggle.com/alexryzhkov/lightautoml-baseline-tps-june-2021  
+https://www.kaggle.com/alexryzhkov/lightautoml-classifier-regressor-mix  
+https://www.kaggle.com/alexryzhkov/lightautoml-pseudolabel-nlp-baseline  
+
+# Вьювер для скомпилированных моделей    
+https://github.com/lutzroeder/netron  
+  
     
-    python3 predict.py --model_path <path_to_pickled_model> --test_data <path_to_test_data> --output <path_to_output_csv_file>
-</li>
-    <li> загрузить полученные результаты в систему</li>
-</ol>
-
-В репозитории есть своя реализация регуляризованного target encoding (SmoothedTargetEncoding). можно поэкспериментировать с ним
