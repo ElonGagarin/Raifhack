@@ -1,4 +1,4 @@
-# Лучшие публичные решения и другие полещные ссылки с этого хакатона
+# Лучшие публичные решения и другие полезные ссылки с этого хакатона
 
 https://github.com/danielgafni/RAIFHACK  
 https://github.com/sakutepov/raif_baseline  
